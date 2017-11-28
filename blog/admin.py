@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . import models
+from .models import Post, Comment
 
 class PostAdmin(admin.ModelAdmin):
 	list_display = ('title', 'slug', 'author', 'publish', 'status')
@@ -9,4 +9,10 @@ class PostAdmin(admin.ModelAdmin):
 	raw_id_fields = ('author',)
 	date_hierarchy = 'publish'
 	ordering = ['status', 'publish']
-admin.site.register(models.Post, PostAdmin)
+admin.site.register(Post, PostAdmin)
+
+class CommentAdmin(admin.ModelAdmin):
+	list_display = ('name', 'email', 'post', 'created', 'active')
+	list_filter = ('active', 'created', 'updated')
+	search_fields = ('name', 'post', 'body')
+admin.site.register(Comment, CommentAdmin)
