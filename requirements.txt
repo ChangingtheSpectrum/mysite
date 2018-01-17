@@ -1,1 +1,4 @@
 Django==1.11.7 
+django-taggit
+django-haystack==2.7.dev0
+pysolr==3.3.2

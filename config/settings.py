@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'taggit',
+    'haystack',
 
     'blog',
 ]
@@ -128,3 +129,12 @@ EMAIL_HOST_PASSWORD = 'Reverend1'
 EMAIL_PORT = 8000
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
+        'URL': 'http://localhost:8983/solr/blog1'
+    },
+}
+
+HAYSTACK_ID_FIELD = 1

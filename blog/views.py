@@ -85,16 +85,13 @@ def post_share(request, post_id):
 			message = 'Read "{}" at {}\n\n{}\'s comments: {}'.format(post.title, post_url, cd['name'], cd['comments'])
 			send_mail(subject, message, 'admin@myblog.com', [cd['to']])
 			sent = True
-<<<<<<< HEAD
 		else:
 			form = EmailPostForm()
 	return render(request, 'blog/post/share.html', {'post': post,
 													'form': form,
 													'sent': sent})
-=======
-	else:
-		form = EmailPostForm()
-		return render(request, 'blog/post/share.html', {'post': post,
-														'form': form,
-														'sent': sent})
->>>>>>> 132ab504bf1a5c489615d8c0e24fe3d88742347d
+	#else:
+		#form = EmailPostForm()
+		#return render(request, 'blog/post/share.html', {'post': post,
+														#'form': form,
+														#'sent': sent})
